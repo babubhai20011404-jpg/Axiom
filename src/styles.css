@@ -115,6 +115,150 @@
   }
 }
 
+/* ============================================================
+   AXIOM SCROLL REVEAL SYSTEM
+   Pure CSS keyframes + data-attribute state.
+   No external library required.
+   ============================================================ */
+
+/* Base reveal utility */
+@utility reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-fill-mode: both;
+
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger delays (used via inline style or sibling combinators) */
+@utility reveal-d1 { transition-delay: 80ms; }
+@utility reveal-d2 { transition-delay: 160ms; }
+@utility reveal-d3 { transition-delay: 240ms; }
+@utility reveal-d4 { transition-delay: 320ms; }
+@utility reveal-d5 { transition-delay: 400ms; }
+
+/* Hero-specific stagger (faster, on page load) */
+@utility hero-fade {
+  opacity: 0;
+  transform: translateY(16px);
+  animation-fill-mode: both;
+  animation-name: hero-in;
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide-up variant (slightly more travel for large headings) */
+@utility reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-fill-mode: both;
+
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scale-in for cards */
+@utility reveal-card {
+  opacity: 0;
+  transform: translateY(18px) scale(0.985);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-fill-mode: both;
+
+  &[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Fade only (no movement — for captions, labels, meta) */
+@utility reveal-fade {
+  opacity: 0;
+  transition: opacity 0.55s ease-out;
+  transition-fill-mode: both;
+
+  &[data-visible="true"] {
+    opacity: 1;
+  }
+}
+
+/* FAQ answer animated height */
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition:
+    grid-template-rows 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.25s ease-out;
+
+  &.faq-answer--open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  & > * {
+    overflow: hidden;
+  }
+}
+
+/* Hover lift for cards */
+@utility hover-lift {
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION — override everything
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-up,
+  .reveal-card,
+  .reveal-fade {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-fade {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .faq-answer {
+    transition: none !important;
+  }
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
