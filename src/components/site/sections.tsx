@@ -734,7 +734,11 @@ export function Footer() {
             <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
               Critical product experiences, fixed in 72 hours.
             </p>
+            <p className="mt-3 micro text-muted-foreground">
+              UAE-based product design practice · Serving clients worldwide
+            </p>
             <p className="mt-6 text-sm text-foreground">Siddhant Bhendkar</p>
+            <p className="micro text-muted-foreground">Founder / Product Designer</p>
           </div>
           <div className="grid gap-8 sm:grid-cols-2">
             <nav aria-label="Footer navigation" className="flex flex-col gap-3">
@@ -766,6 +770,9 @@ export function Footer() {
             </div>
           </div>
         </div>
+        <p className="mt-10 micro text-muted-foreground border-t border-hairline pt-6">
+          © 2026 AXIOM. All rights reserved.
+        </p>
       </div>
     </footer>
   );
