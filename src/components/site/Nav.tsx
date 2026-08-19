@@ -33,7 +33,7 @@ export function Nav() {
     <header className="sticky top-0 z-50 backdrop-blur-md">
       <div className="border-b border-hairline bg-background/90 py-2 text-center">
         <span className="micro text-muted-foreground">
-          72-hour product rescue &nbsp;·&nbsp; 2 engagements available
+          72-hour product rescue &nbsp;·&nbsp; one critical experience, fixed properly
         </span>
       </div>
       <div className="flex items-center justify-between gap-4 border-b border-hairline bg-background/80 px-5 py-4 md:px-10">

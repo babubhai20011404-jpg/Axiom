@@ -85,6 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { name: "author", content: "Siddhant Bhendkar" },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://axiom.contentify.digital" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [

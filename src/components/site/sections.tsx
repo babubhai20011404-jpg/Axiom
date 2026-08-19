@@ -135,22 +135,44 @@ export function Process() {
 }
 
 function CaseIntro({
+  index,
   label,
   title,
   body,
+  problem,
+  hypothesis,
+  decision,
 }: {
+  index: string;
   label: string;
   title: string;
   body: string;
+  problem: string;
+  hypothesis: string;
+  decision: string;
 }) {
   return (
     <>
-      <SectionLabel index="03">{label}</SectionLabel>
+      <SectionLabel index={index}>{label}</SectionLabel>
       <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-end">
         <Heading>{title}</Heading>
         <div>
-          <div className="micro text-lime">Independent concept</div>
+          <div className="micro text-lime">Independent concept — speculative redesign</div>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
+        </div>
+      </div>
+      <div className="mt-10 grid gap-3 sm:grid-cols-3">
+        <div className="rounded-xl border border-hairline bg-card p-5">
+          <div className="micro text-lime">Problem</div>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{problem}</p>
+        </div>
+        <div className="rounded-xl border border-hairline bg-card p-5">
+          <div className="micro text-muted-foreground">Design hypothesis</div>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{hypothesis}</p>
+        </div>
+        <div className="rounded-xl border border-hairline bg-card p-5">
+          <div className="micro text-muted-foreground">Key decision</div>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{decision}</p>
         </div>
       </div>
     </>
@@ -161,9 +183,13 @@ export function CaseNova() {
   return (
     <Section id="work">
       <CaseIntro
-        label="Case Study 01 — Fintech / Crypto"
+        index="03"
+        label="Concept 01 — Fintech / Crypto"
         title="NOVA — A clearer way to move money."
-        body="A concept redesign exploring how a crypto exchange can make conversion, confirmation and transaction tracking feel clearer and more trustworthy."
+        body="A speculative redesign exploring how a crypto exchange can make conversion, confirmation and transaction tracking feel clearer and more trustworthy."
+        problem="Users lack confidence when moving money. Transaction states are ambiguous, conversion flows create friction, and the interface doesn't communicate trust at the moments that matter most."
+        hypothesis="If portfolio visibility, transaction state and conversion flow are simplified — reducing uncertainty at high-risk moments — users will move through the product with more confidence."
+        decision="Reduce cognitive load at every confirmation step. Make every transaction state unambiguous. Surface portfolio balance and movement without requiring navigation."
       />
       <div className="mt-12 space-y-10">
         <div>
@@ -206,9 +232,13 @@ export function CaseArc() {
   return (
     <Section>
       <CaseIntro
-        label="Case Study 02 — B2B SaaS"
+        index="04"
+        label="Concept 02 — B2B SaaS"
         title="ARC — Decision-making without the dashboard overload."
         body="A concept exploration of information hierarchy in a B2B analytics platform: what an executive needs at a glance, and what stays one drill-down away."
+        problem="Executives face dashboards full of data but can't quickly identify what requires action. Revenue movement, churn risk and expansion signals are buried in undifferentiated metrics."
+        hypothesis="If the interface is structured around decision priority rather than data completeness — surfacing revenue, retention, alerts and drill-down in a deliberate hierarchy — executives can act faster."
+        decision="Separate signal from noise at the top level. Reserve drill-down for investigation, not overview. Surface alerts with enough context to act without clicking through."
       />
       <div className="mt-12 space-y-10">
         <div>
@@ -235,9 +265,13 @@ export function CaseVanta() {
   return (
     <Section>
       <CaseIntro
-        label="Case Study 03 — AI / Automation"
+        index="05"
+        label="Concept 03 — AI / Automation"
         title="VANTA — Automation you can actually trust."
         body="A concept project on AI workflow automation: complex flows, explicit states, and human approval exactly where it matters. Control and transparency over magic."
+        problem="AI workflow tools obscure what is happening and why. Users can't tell what the agent is doing, when it will ask for approval, or what happened after execution — which erodes trust."
+        hypothesis="If automation state, approval gates and execution results are made explicit and visible at every step, users will trust the system enough to let it run consequential actions."
+        decision="Never hide the agent's reasoning. Place human approval gates visually at the exact moment they are required. Make every execution result auditable without requiring a log search."
       />
       <div className="mt-12 space-y-10">
         <div>
